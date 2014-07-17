@@ -56,7 +56,7 @@
     
     
     //Source start
-    [sourceCodeContent appendFormat:@"#import \"%@\".h\n\n",modelName];
+    [sourceCodeContent appendFormat:@"#import \"%@.h\"\n\n",modelName];
     [sourceCodeContent appendFormat:@"NSString * const k%@_EntityName = @\"%@\";\n",modelName,modelName];
     
     //all the property finished
@@ -293,7 +293,7 @@
         [sourceCodeContent appendString:@"            //include relation\n"];
         [sourceCodeContent appendString:@"        }\n"];
         [sourceCodeContent appendString:@"    }else {\n"];
-        [sourceCodeContent appendString:@"        return nil;   \n}\n\n       return self\n}\n\n\n"];
+        [sourceCodeContent appendString:@"        return nil;   \n  }\n\n       return self;\n}\n\n\n"];
 
 
     //Persist
