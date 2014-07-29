@@ -417,16 +417,17 @@
     [sourceCodeContent appendString:@"                                             sortDesc:sortDescs\n"];
     [sourceCodeContent appendString:@"                                            inContext:[NSManagedObjectContext sharedObjectContext]];\n\n"];
     
-    [sourceCodeContent appendString:@"    NSMutableArray* gourps = [NSMutableArray arrayWithCapacity:[results count]];\n\n"];
-    [sourceCodeContent appendString:@"    if ([results count] > 0) {\n"];
+    [sourceCodeContent appendString:@"    NSMutableArray* gourps = nil;\n\n"];
+    [sourceCodeContent appendString:@"    if ([results count] > 0) {\n\n"];
+    [sourceCodeContent appendString:@"        groups = [NSMutableArray arrayWithCapacity:[results count]];\n\n"];
     [sourceCodeContent appendString:@"        @autoreleasepool {\n"];
     [sourceCodeContent appendFormat:@"            %@* item = nil;\n\n",modelName];
     [sourceCodeContent appendString:@"            for (NSManagedObject* mo in results) {\n"];
     [sourceCodeContent appendFormat:@"                group = [[%@ alloc] initWithEntity:mo includeRelationships:NO];\n",modelName];
     [sourceCodeContent appendString:@"                [gourps addObject:group];\n"];
     [sourceCodeContent appendString:@"            }\n       }\n\n"];
-    [sourceCodeContent appendString:@"        return gourps;\n  }\n\n"];
-    [sourceCodeContent appendString:@"    return nil;\n}\n*/\n\n"];
+    [sourceCodeContent appendString:@"    }\n\n"];
+    [sourceCodeContent appendString:@"    return groups;\n}\n*/\n\n"];
     
     
 #pragma mark - Find With Condition
@@ -460,16 +461,17 @@
     [sourceCodeContent appendString:@"                                             sortDesc:sortDescs\n"];
     [sourceCodeContent appendString:@"                                            inContext:[NSManagedObjectContext sharedObjectContext]];\n\n"];
     
-    [sourceCodeContent appendString:@"    NSMutableArray* gourps = [NSMutableArray arrayWithCapacity:[results count]];\n\n"];
-    [sourceCodeContent appendString:@"    if ([results count] > 0) {\n"];
+    [sourceCodeContent appendString:@"    NSMutableArray* gourps = nil;\n\n"];
+    [sourceCodeContent appendString:@"    if ([results count] > 0) {\n\n"];
+    [sourceCodeContent appendString:@"        groups = [NSMutableArray arrayWithCapacity:[results count]];\n\n"];
     [sourceCodeContent appendString:@"        @autoreleasepool {\n"];
     [sourceCodeContent appendFormat:@"            %@* item = nil;\n\n",modelName];
     [sourceCodeContent appendString:@"            for (NSManagedObject* mo in results) {\n"];
     [sourceCodeContent appendFormat:@"                group = [[%@ alloc] initWithEntity:mo includeRelationships:NO];\n",modelName];
     [sourceCodeContent appendString:@"                [gourps addObject:group];\n"];
     [sourceCodeContent appendString:@"            }\n       }\n\n"];
-    [sourceCodeContent appendString:@"        return gourps;\n  }\n\n"];
-    [sourceCodeContent appendString:@"    return nil;\n}\n*/"];
+    [sourceCodeContent appendString:@"    }\n\n"];
+    [sourceCodeContent appendString:@"    return groups;\n}\n*/\n\n"];
     
 
 #pragma mark - .m End
